@@ -1,4 +1,4 @@
-package com.TPArena;
+package com.modelo.dominio;
 
 class CalificacionNumerica implements TipoCalificacion {
 

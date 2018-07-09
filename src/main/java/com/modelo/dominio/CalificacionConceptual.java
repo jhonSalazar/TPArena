@@ -1,4 +1,4 @@
-package com.TPArena;
+package com.modelo.dominio;
 
 public class CalificacionConceptual implements TipoCalificacion{
 	

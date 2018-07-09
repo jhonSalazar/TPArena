@@ -1,10 +1,16 @@
-package com.TPArena;
+package com.modelo.dominio;
 
 import java.util.List;
 
 
 import java.util.ArrayList;
+import org.uqbar.arena.Application;
+import org.uqbar.arena.windows.Window;
+import org.uqbar.commons.utils.Observable;
 
+
+
+@Observable
 public class Estudiante {
 	
 	private String nombre;
