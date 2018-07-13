@@ -2,18 +2,26 @@ package com.ventanas;
 
 import org.uqbar.arena.bootstrap.Bootstrap;
 
+import com.modelo.dominio.Estudiante;
+import com.modelo.dominio.Tarea;
 import com.repositorios.iu.RepositorioEstudiantes;
+import com.repositorios.iu.RepositorioTareas;
 
 
 public class CrearDemoRepo implements Bootstrap {
 
 	@Override
 	public void run() {
-
-		RepositorioEstudiantes repoCelulares = RepositorioEstudiantes.getInstance();
-		repoCelulares.createIfNotExists("Jhon Saalazar ", 21212524);
-		repoCelulares.createIfNotExists("Fede con todo ", 21212524);
-		repoCelulares.createIfNotExists("Gaby durmiendo ", 21212524);
+		RepositorioTareas repoTare  = RepositorioTareas.getInstance();
+		Tarea tarea = new Tarea("Parcial");
+		repoTare.createIfNotExists(tarea);
+	
+		//repoTare.createIfNotExists(new Tarea("Trabajo practico"));
+		
+		RepositorioEstudiantes  repoEstudianes = RepositorioEstudiantes.getInstance();
+		repoEstudianes.createIfNotExists(new Estudiante("Jhon Saalazar ", 21212524));
+		repoEstudianes.createIfNotExists(new Estudiante("Fede con todo ", 21212524));
+		repoEstudianes.createIfNotExists(new Estudiante("Gaby durmiendo ", 21212524));
 	}
 
 	@Override

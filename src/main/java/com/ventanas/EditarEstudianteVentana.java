@@ -1,5 +1,8 @@
 package com.ventanas;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.uqbar.arena.aop.windows.TransactionalDialog;
 import org.uqbar.arena.bindings.ObservableProperty;
 import org.uqbar.arena.bindings.PropertyAdapter;
@@ -16,16 +19,19 @@ import org.uqbar.lacar.ui.model.ListBuilder;
 import org.uqbar.lacar.ui.model.bindings.Binding;
 
 import com.modelo.dominio.Estudiante;
+import com.modelo.dominio.Tarea;
 import com.repositorios.iu.RepositorioEstudiantes;
+import com.repositorios.iu.RepositorioTareas;
 
 @SuppressWarnings("serial")
 public class EditarEstudianteVentana extends TransactionalDialog<Estudiante> {
 
 	public EditarEstudianteVentana(WindowOwner owner, Estudiante model) {
 		super(owner, model);
-		this.setTitle("Editar datos del cliente");
+		this.setTitle("Editar datos del Estudiante");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void createFormPanel(Panel mainPanel) {
 		Panel form = new Panel(mainPanel);
@@ -40,19 +46,22 @@ public class EditarEstudianteVentana extends TransactionalDialog<Estudiante> {
 		new TextBox(form)
 			.setWidth(200)
 			.bindValueToProperty("nombre");
-
-		/*new Label(form).setText("Modelo del aparato");
-		Selector<ModeloCelular> selector = new Selector<ModeloCelular>(form); //
-		selector.bindValueToProperty("modeloCelular");
+				
+		new Label(form).setText("Tareas disponibles");
+		Selector<Tarea> selector = new Selector<Tarea>(form); //
+		selector.bindValueToProperty("tareas");
 		selector.allowNull(false);
 		selector.setWidth(200);
+		
+		@SuppressWarnings("rawtypes")
+		Binding<Tarea, Selector<Tarea>, ListBuilder<Tarea>> itemsBinding = selector.bindItems( 
+				new ObservableProperty(RepositorioTareas.getInstance(), "tareas"));
+		itemsBinding.setAdapter( 
+				new PropertyAdapter(Tarea.class, "nombre"));
+		
 
-		Binding<ModeloCelular, Selector<ModeloCelular>, ListBuilder<ModeloCelular>> itemsBinding = selector.bindItems( //
-				new ObservableProperty(RepositorioModelos.getInstance(), "modelos"));
-		itemsBinding.setAdapter( //
-				new PropertyAdapter(ModeloCelular.class, "descripcionEntera"));
 
-		new Label(form).setText("Recibe resumen cuenta en domicilio");
+	/*	new Label(form).setText("Recibe resumen cuenta en domicilio");
 		CheckBox chkRecibeResumenCuenta = new CheckBox(form);
 		chkRecibeResumenCuenta.bindValueToProperty("recibeResumenCuenta");
 		chkRecibeResumenCuenta.bindEnabledToProperty("habilitaResumenCuenta");*/

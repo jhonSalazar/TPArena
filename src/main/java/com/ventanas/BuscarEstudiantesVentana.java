@@ -75,6 +75,14 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 			.setWidth(200)
 			.bindValueToProperty("nombre");
 		
+		new Label(searchFormPanel)
+		.setText("Tarea ")
+		.setForeground(Color.BLUE);
+	
+		new TextBox(searchFormPanel)
+		.setWidth(200)
+		.bindValueToProperty("tarea");
+		
 		new Button(panelBotones)
 		.setCaption("Buscar")
 		.onClick( () -> this.getModelObject().buscar() )

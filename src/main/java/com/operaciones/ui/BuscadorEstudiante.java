@@ -11,6 +11,20 @@ import com.repositorios.iu.*;
 
 @Observable
 public class BuscadorEstudiante {
+	
+	private int legajo;
+	private String nombre;
+	private List<Estudiante> resultados;
+	private Estudiante estudianteSeleccionado;
+	private String tarea;
+	public String getTarea() {
+		return tarea;
+	}
+
+	public void setTarea(String tarea) {
+		this.tarea = tarea;
+	}
+
 	public int getLegajo() {
 		return legajo;
 	}
@@ -27,10 +41,7 @@ public class BuscadorEstudiante {
 		this.estudianteSeleccionado = estudianteSeleccionado;
 	}
 
-	private int legajo;
-	private String nombre;
-	private List<Estudiante> resultados;
-	private Estudiante estudianteSeleccionado;
+
 
 	// ********************************************************
 	// ** Acciones
