@@ -53,6 +53,7 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 	 */
 	@Override
 	protected void createFormPanel(Panel mainPanel) {
+		
 		Panel searchFormPanel = new Panel(mainPanel);
 		searchFormPanel.setLayout(new ColumnLayout(2));
 		
@@ -61,23 +62,23 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 		panelBotones.setLayout(new ColumnLayout(4));
 
 		new Label(searchFormPanel)
-			.setText("Número")
-			.setForeground(Color.BLUE);
+			.setText("Número");
+			
 		new NumericField(searchFormPanel)
 			.setWidth(150)
 			.bindValueToProperty("legajo");
 
 		new Label(searchFormPanel)
-			.setText("Nombre ")
-			.setForeground(Color.BLUE);
+			.setText("Nombre ");
+			
 		
 		new TextBox(searchFormPanel)
 			.setWidth(200)
 			.bindValueToProperty("nombre");
 		
 		new Label(searchFormPanel)
-		.setText("Tarea ")
-		.setForeground(Color.BLUE);
+		.setText("Tarea ");
+		
 	
 		new TextBox(searchFormPanel)
 		.setWidth(200)
@@ -99,18 +100,9 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 		
 	}
 
-	/**
-	 * Acciones asociadas de la pantalla principal. Interesante para ver es cómo funciona el binding que mapea
-	 * la acción que se dispara cuando el usuario presiona click Para que el binding sea flexible necesito
-	 * decirle objeto al que disparo la acción y el mensaje a enviarle Contra: estoy atado a tener métodos sin
-	 * parámetros. Eso me impide poder pasarle parámetros como en el caso del alta/modificación.
-	 * Buscar/Limpiar -> son acciones que resuelve el modelo (BuscadorCelular) Nuevo -> necesita disparar una
-	 * pantalla de alta, entonces lo resuelve la vista (this)
-	 * 
-	 */
 	@Override
 	protected void addActions(Panel actionsPanel) {
-		new Button(actionsPanel)
+		/*new Button(actionsPanel)
 			.setCaption("Buscar")
 			.onClick( () -> this.getModelObject().buscar() )
 			.setAsDefault()
@@ -122,7 +114,7 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 
 		new Button(actionsPanel)//
 			.setCaption("Nuevo Estudiante")
-			.onClick( () -> this.crearEstudiante() );
+			.onClick( () -> this.crearEstudiante() );*/
 	}
 
 // *************************************************************************
@@ -157,26 +149,21 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 			.setTitle("Nombre")
 			.setFixedSize(150)
 			.bindContentsToProperty("nombre");
-
+		
 		Column<Estudiante> numeroColumn = new Column<Estudiante>(table);
 		numeroColumn.setTitle("Número");
 		numeroColumn.setFixedSize(100);
 		numeroColumn.bindContentsToProperty("legajo");
 
-	/*	Column<Estudiante> modeloColumn = new Column<Estudiante>(table);
-		modeloColumn.setTitle("Modelo");
+		Column<Estudiante> modeloColumn = new Column<Estudiante>(table);
+		modeloColumn.setTitle("Tarea");
 		modeloColumn.setFixedSize(150);
-		modeloColumn.bindContentsToProperty("modeloCelular");*/
-
-	/*	Column<Celular> ingresoColumn = new Column<Celular>(table);
-		ingresoColumn.setTitle("Recibe resumen de cuenta");
-		ingresoColumn.setFixedSize(50);
-		ingresoColumn.bindContentsToProperty("recibeResumenCuenta").setTransformer( recibe -> {
-			Boolean siRecibe = (Boolean) recibe;
-			if(siRecibe == null)
-				return "NO";
-			return siRecibe ? "SI" : "NO";
-		}); */
+		modeloColumn.bindContentsToProperty("tarea");
+		
+		Column<Estudiante> notaColum = new Column<Estudiante>(table);
+		notaColum.setTitle("Nota");
+		notaColum.setFixedSize(30);
+		notaColum.bindContentsToProperty("nota");
 	}
 
 	protected void createGridActions(Panel mainPanel) {

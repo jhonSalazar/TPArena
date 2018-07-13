@@ -1,14 +1,11 @@
 package com.ventanas;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.uqbar.arena.aop.windows.TransactionalDialog;
 import org.uqbar.arena.bindings.ObservableProperty;
 import org.uqbar.arena.bindings.PropertyAdapter;
 import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.widgets.Button;
-import org.uqbar.arena.widgets.CheckBox;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.NumericField;
 import org.uqbar.arena.widgets.Panel;
@@ -49,11 +46,11 @@ public class EditarEstudianteVentana extends TransactionalDialog<Estudiante> {
 				
 		new Label(form).setText("Tareas disponibles");
 		Selector<Tarea> selector = new Selector<Tarea>(form); //
-		selector.bindValueToProperty("tareas");
+		selector.bindValueToProperty("tarea");
 		selector.allowNull(false);
 		selector.setWidth(200);
 		
-		@SuppressWarnings("rawtypes")
+		
 		Binding<Tarea, Selector<Tarea>, ListBuilder<Tarea>> itemsBinding = selector.bindItems( 
 				new ObservableProperty(RepositorioTareas.getInstance(), "tareas"));
 		itemsBinding.setAdapter( 

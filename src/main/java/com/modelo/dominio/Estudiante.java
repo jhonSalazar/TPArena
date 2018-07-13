@@ -28,6 +28,20 @@ public class Estudiante extends Entity {
 	
 	private List<Tarea> tareas = new ArrayList <Tarea>(); 
 	
+	private Tarea tarea;
+	
+	private int nota;
+	
+	public int getNota() {
+		return nota;
+	}
+
+
+	public void setNota(int nota) {
+		this.nota = nota;
+	}
+
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -96,6 +110,16 @@ public class Estudiante extends Entity {
 	
 	public boolean ingresoNombre() {
 		return this.nombre != null && !this.nombre.trim().equals("");
+	}
+
+
+	public Tarea getTarea() {
+		return tarea;
+	}
+
+
+	public void setTarea(Tarea tarea) {
+		this.tarea = tarea;
 	}
 	
 	

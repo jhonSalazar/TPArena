@@ -15,9 +15,6 @@ import uqbar.arena.persistence.PersistentRepo;
 @Observable
 public class RepositorioTareas extends PersistentRepo<Tarea> implements Serializable {
 	
-	/**
-	 * Definición del Singleton
-	 */
 	private static RepositorioTareas instance;
 
 	public static RepositorioTareas getInstance() {
