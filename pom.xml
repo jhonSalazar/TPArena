@@ -27,6 +27,12 @@
         <artifactId>arena-jface</artifactId>
         <version>3.6.1</version>
      </dependency>
+     
+     <dependency>
+			<groupId>org.uqbar-project</groupId>
+			<artifactId>arena-pers</artifactId>
+			<version>3.6.1</version>
+		</dependency>
    </dependencies>
 
   <build>

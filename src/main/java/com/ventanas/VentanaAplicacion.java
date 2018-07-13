@@ -8,7 +8,10 @@ import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.MainWindow;
 import org.uqbar.arena.widgets.tables.Column;
 import org.uqbar.arena.widgets.*;
+
+import com.ibm.icu.impl.Row;
 import com.modelo.dominio.Estudiante;
+import com.vistasmodelos.VistaEstudiante;
 
 
 
@@ -59,12 +62,19 @@ public class VentanaAplicacion extends MainWindow<Estudiante>{
 		Column<Estudiante> columnaNota = new Column<Estudiante>(TablaAlumnos);
 		columnaNota.setTitle("Nota");
 		
+		
+		
+		
+		
 		TablaAlumnos.setHeight(400);
 		TablaAlumnos.setWidth(700);
 		
 		new Button(mainPanel).setCaption("Ingresar Alumno").onClick(this::registrarAlumno);
 		//new Button(mainPanel).setCaption("Cerrar").onClick(onClick);
 	}
+	
+
+	
 	public void registrarAlumno() {
 		Dialog<?> dialog = new VentanaAlumno(this);
 		dialog.open();

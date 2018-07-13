@@ -1,11 +1,30 @@
+import org.uqbar.arena.Application;
+import org.uqbar.arena.windows.Window;
+
 import com.modelo.dominio.Estudiante;
+import com.ventanas.BuscarEstudiantesVentana;
+
 import com.ventanas.VentanaAplicacion;
 
+import com.ventanas.*;
+import uqbar.arena.persistence.Configuration;
 
 
-public class InicioAplicacion {
-	public static void main(String[] args) {
-	    new VentanaAplicacion(new Estudiante()).startApplication();
+
+public class InicioAplicacion extends Application {
+	
+	
+	public InicioAplicacion(CrearDemoRepo crearDemoRepo) {
+		super(crearDemoRepo);
 	}
-
+	
+	public static void main(String[] args) {
+		Configuration.configure();
+		new InicioAplicacion(new CrearDemoRepo()).start();
+	}
+	
+	
+	protected Window<?> createMainWindow() {
+		return new BuscarEstudiantesVentana( this);
+	}
 }

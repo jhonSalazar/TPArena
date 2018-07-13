@@ -12,7 +12,7 @@ import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.WindowOwner;
 
 import com.vistasmodelos.VistaEstudiante;
-
+import com.modelo.dominio.Estudiante;
 
 public class VentanaAlumno extends Dialog<VistaEstudiante>{
 	
