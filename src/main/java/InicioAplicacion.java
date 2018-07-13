@@ -1,14 +1,8 @@
 import org.uqbar.arena.Application;
 import org.uqbar.arena.windows.Window;
-
-import com.modelo.dominio.Estudiante;
 import com.ventanas.BuscarEstudiantesVentana;
-
-import com.ventanas.VentanaAplicacion;
-
 import com.ventanas.*;
 import uqbar.arena.persistence.Configuration;
-
 
 
 public class InicioAplicacion extends Application {

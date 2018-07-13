@@ -55,6 +55,10 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 	protected void createFormPanel(Panel mainPanel) {
 		Panel searchFormPanel = new Panel(mainPanel);
 		searchFormPanel.setLayout(new ColumnLayout(2));
+		
+		Panel panelBotones = new Panel(mainPanel);
+		panelBotones.setLayout(new HorizontalLayout());
+		panelBotones.setLayout(new ColumnLayout(4));
 
 		new Label(searchFormPanel)
 			.setText("Número")
@@ -71,17 +75,17 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 			.setWidth(200)
 			.bindValueToProperty("nombre");
 		
-		new Button(mainPanel)
+		new Button(panelBotones)
 		.setCaption("Buscar")
 		.onClick( () -> this.getModelObject().buscar() )
 		.setAsDefault()
 		.disableOnError();
 
-		new Button(mainPanel) //
+		new Button(panelBotones) //
 		.setCaption("Limpiar")
 		.onClick( () -> this.getModelObject().limpiar() );
 
-		new Button(mainPanel)//
+		new Button(panelBotones)//
 		.setCaption("Nuevo Estudiante")
 		.onClick( () -> this.crearEstudiante() ); 
 		
