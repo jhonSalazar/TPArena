@@ -34,8 +34,8 @@ public class RepositorioEstudiantes extends PersistentRepo<Estudiante> implement
 		super.create(estudiante);
 	}
 
-	public void createIfNotExists(String  nombre, int legajo) {
-		Estudiante estudiante = new Estudiante(nombre, legajo);
+	public void createIfNotExists(String  nombre, int legajo,String tarea,String nota) {
+		Estudiante estudiante = new Estudiante(nombre, legajo,tarea,nota);
 		this.createIfNotExists(estudiante);
 	}
 	
@@ -71,12 +71,12 @@ public class RepositorioEstudiantes extends PersistentRepo<Estudiante> implement
 	// ********************************************************
 
 	public List<Estudiante> search(int numero) {
-		return this.search(numero, null);
+		return this.search(numero, null,null,null);
 	}
 
 
-	public List<Estudiante> search(int  numero, String nombre) {
-		Estudiante estudiante = new Estudiante(nombre, numero);
+	public List<Estudiante> search(int  numero, String nombre,String tarea,String nota) {
+		Estudiante estudiante = new Estudiante(nombre, numero,tarea,nota);
 		return this.searchByExample(estudiante);
 	}
 

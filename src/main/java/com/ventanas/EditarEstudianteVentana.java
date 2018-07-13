@@ -6,6 +6,7 @@ package com.ventanas;
 import org.uqbar.arena.aop.windows.TransactionalDialog;
 import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.widgets.Button;
+import org.uqbar.arena.widgets.CheckBox;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.NumericField;
 import org.uqbar.arena.widgets.Panel;
@@ -43,6 +44,10 @@ public class EditarEstudianteVentana extends TransactionalDialog<Estudiante> {
 		new TextBox(form)
 			.setWidth(200)
 			.bindValueToProperty("tarea");
+		
+		//CheckBox checkMarried = new CheckBox(form);
+	//	checkMarried.bindEnabledToProperty("conceptual");
+	//	checkMarried.bindValueToProperty("conceptual");
 		
 		new Label(form).setText("Nota");
 		new TextBox(form)

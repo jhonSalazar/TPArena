@@ -14,9 +14,20 @@ public class BuscadorEstudiante {
 	
 	private int legajo;
 	private String nombre;
+	private String tarea;
+	private String nota;
+	
+	public String getNota() {
+		return nota;
+	}
+
+	public void setNota(String nota) {
+		this.nota = nota;
+	}
+
 	private List<Estudiante> resultados;
 	private Estudiante estudianteSeleccionado;
-	private String tarea;
+	
 	public String getTarea() {
 		return tarea;
 	}
@@ -49,7 +60,7 @@ public class BuscadorEstudiante {
 
 	public void buscar() {
 		this.resultados = new ArrayList<Estudiante>();
-		this.resultados = RepositorioEstudiantes.getInstance().search(this.legajo, this.nombre);
+		this.resultados = RepositorioEstudiantes.getInstance().search(this.legajo, this.nombre,this.tarea,this.nota);
 	}
 
 	public void limpiar() {

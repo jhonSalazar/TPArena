@@ -10,6 +10,7 @@ import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import org.uqbar.commons.utils.Transactional;
 
+import scala.Boolean;
 import uqbar.arena.persistence.annotations.PersistentClass;
 import uqbar.arena.persistence.annotations.PersistentField;
 
@@ -30,14 +31,16 @@ public class Estudiante extends Entity {
 	private String tarea;
 	//private Tarea tarea;	
 	private String nota;
-	private Boolean notaConceptual;
-	public Boolean getNotaConceptual() {
-		return notaConceptual;
+
+	private Boolean conceptual;
+
+	public Boolean getConceptual() {
+		return conceptual;
 	}
 
 
-	public void setNotaConceptual(Boolean notaConceptual) {
-		this.notaConceptual = notaConceptual;
+	public void setConceptual(Boolean conceptual) {
+		this.conceptual = conceptual;
 	}
 
 
@@ -80,9 +83,11 @@ public class Estudiante extends Entity {
 		this.tareas = tareas;
 	}
 	
-	public Estudiante (String nombre,int legajo) {
+	public Estudiante (String nombre,int legajo,String tarea,String nota) {
 		this.nombre=nombre;
 		this.legajo=legajo;
+		this.tarea=tarea;
+		this.nota=nota;
 		tareas = new ArrayList <Tarea>();
 	}
 	
@@ -110,7 +115,10 @@ public class Estudiante extends Entity {
 		}
 	}
 	
-
+	public void validarFormatoConceptul()
+	{
+		
+	}
 	public boolean ingresoNumero() {
 		return this.legajo != 0;
 	}
