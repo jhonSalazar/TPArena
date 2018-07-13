@@ -29,7 +29,7 @@ public class RepositorioEstudiantes extends PersistentRepo<Estudiante> implement
 	}
 
 	public void create(Estudiante estudiante) {
-		this.validarClientesDuplicados(estudiante);
+		this.validarEstudiantesDuplicados(estudiante);
 		estudiante.validar();
 		super.create(estudiante);
 	}
@@ -60,10 +60,10 @@ public class RepositorioEstudiantes extends PersistentRepo<Estudiante> implement
 		}
 	}
 
-	protected void validarClientesDuplicados(Estudiante estudiante) {
-		if (!this.search(estudiante.getLegajo()).isEmpty()) {
+	protected void validarEstudiantesDuplicados(Estudiante estudiante) {
+		/*if (!this.search(estudiante.getLegajo()).isEmpty()) {
 			throw new UserException("Ya existe el estudiante  con el número: " + estudiante.getLegajo());
-		}
+		}*/
 	}
 
 	// ********************************************************
@@ -74,20 +74,7 @@ public class RepositorioEstudiantes extends PersistentRepo<Estudiante> implement
 		return this.search(numero, null);
 	}
 
-	/**
-	 * Busca los celulares que coincidan con los datos recibidos. Tanto número como nombre pueden ser nulos,
-	 * en ese caso no se filtra por ese atributo.
-	 * Para que funcione correctamente el search by example hay que tener cuidado 
-	 * ya que se incluyen en la búsqueda cualquiera de los valores de un objeto example que no sean nulos, esto implica
-	 * 1) ojo con los tipos primitivos boolean, int, float, etc.
-	 * 2) pero además ojo con los valores inicializados por default, tanto en el constructor como en la definición de la clase
-	 * ej: Boolean recibeResumenCuenta = false implica que siempre va a buscar a los clientes que no reciban resumen de cuenta
-	 *
-	 * Para soportar búsquedas por substring hay que descomentar todo el código de abajo, el problema es que trae 
-	 * a memoria todo el grafo de celulares (con una cantidad enorme de celulares puede traer problemas de performance)
-	 * En ese caso el celular (12345, "Juan Gonzalez") será contemplado por la búsqueda (23, "Gonza")
-	 * 
-	 */
+
 	public List<Estudiante> search(int  numero, String nombre) {
 		Estudiante estudiante = new Estudiante(nombre, numero);
 		return this.searchByExample(estudiante);

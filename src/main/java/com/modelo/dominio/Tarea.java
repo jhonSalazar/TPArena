@@ -15,7 +15,8 @@ import uqbar.arena.persistence.annotations.PersistentClass;
 public class Tarea extends Entity {
 
 	private String nombre;
-	private TipoCalificacion tipo;
+	private int tipo;
+	//private TipoCalificacion tipo;
 	
 	public String getNombre() {
 		return nombre;
@@ -25,15 +26,15 @@ public class Tarea extends Entity {
 		this.nombre = nombre;
 	}
 
-	public TipoCalificacion getTipo() {
+	public int getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(TipoCalificacion tipo) {
+	public void setTipo(int tipo) {
 		this.tipo = tipo;
 	}
 
-	public Tarea (String nombre,TipoCalificacion tipo) {
+	public Tarea (String nombre,int tipo) {
 		this.nombre=nombre;
 		this.tipo=tipo;	
 	}

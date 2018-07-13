@@ -26,18 +26,27 @@ public class Estudiante extends Entity {
 	@PersistentField
 	private int legajo;
 	
-	private List<Tarea> tareas = new ArrayList <Tarea>(); 
-	
-	private Tarea tarea;
-	
-	private int nota;
-	
-	public int getNota() {
+	private List<Tarea> tareas ;	
+	private String tarea;
+	//private Tarea tarea;	
+	private String nota;
+	private Boolean notaConceptual;
+	public Boolean getNotaConceptual() {
+		return notaConceptual;
+	}
+
+
+	public void setNotaConceptual(Boolean notaConceptual) {
+		this.notaConceptual = notaConceptual;
+	}
+
+
+	public String getNota() {
 		return nota;
 	}
 
 
-	public void setNota(int nota) {
+	public void setNota(String nota) {
 		this.nota = nota;
 	}
 
@@ -70,17 +79,15 @@ public class Estudiante extends Entity {
 	public void setTareas(List<Tarea> tareas) {
 		this.tareas = tareas;
 	}
-
-	
-	
 	
 	public Estudiante (String nombre,int legajo) {
 		this.nombre=nombre;
 		this.legajo=legajo;
+		tareas = new ArrayList <Tarea>();
 	}
 	
 	public Estudiante () {
-
+		tareas = new ArrayList <Tarea>();
 	}
 
 	
@@ -88,18 +95,18 @@ public class Estudiante extends Entity {
 		tareas.add(unaTarea);
 	}
 	
-	/**
-	 * Valida que el celular esté correctamente cargado
-	 */
 	public void validar() {
 		if (!this.ingresoNumero()) {
-			throw new UserException("Debe ingresar número");
+			throw new UserException("Debe ingresar número de Legajo");
 		}		
 		if (!this.ingresoNombre()) {
 			throw new UserException("Debe ingresar nombre");
 		}
 		if (this.tareas == null) {
-			throw new UserException("Debe ingresar las tareas del alumno");
+			throw new UserException("Debe ingresar la tarea del alumno");
+		}
+		if (!this.ingresoNota()) {
+			throw new UserException("Debe ingresar la nota del alumno");
 		}
 	}
 	
@@ -111,14 +118,18 @@ public class Estudiante extends Entity {
 	public boolean ingresoNombre() {
 		return this.nombre != null && !this.nombre.trim().equals("");
 	}
+	
+	public boolean ingresoNota() {
+		return this.nota != null && !this.nota.trim().equals("");
+	}
 
 
-	public Tarea getTarea() {
+	public String getTarea() {
 		return tarea;
 	}
 
 
-	public void setTarea(Tarea tarea) {
+	public void setTarea(String tarea) {
 		this.tarea = tarea;
 	}
 	
