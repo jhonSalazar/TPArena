@@ -30,6 +30,7 @@ public class EstudianteViewModel {
 	public Estudiante getEstudiante() {
 		return estudiante;
 	}
+
 	
 	
 }

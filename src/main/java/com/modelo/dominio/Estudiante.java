@@ -23,19 +23,9 @@ public class Estudiante extends Entity {
 
 	private String nombre;
 	private int legajo;
-	private List<Tarea> tareas ;	
 	private String tarea;
 	private String nota;
-	private Boolean conceptual;
 
-	public Boolean getConceptual() {
-		return conceptual;
-	}
-
-
-	public void setConceptual(Boolean conceptual) {
-		this.conceptual = conceptual;
-	}
 
 
 	public String getNota() {
@@ -67,42 +57,20 @@ public class Estudiante extends Entity {
 		this.legajo = legajo;
 	}
 
-
-	public List<Tarea> getTareas() {
-		return tareas;
-	}
-
-
-	public void setTareas(List<Tarea> tareas) {
-		this.tareas = tareas;
-	}
 	
 	public Estudiante (String nombre,int legajo,String tarea,String nota) {
 		this.nombre=nombre;
 		this.legajo=legajo;
 		this.tarea=tarea;
 		this.nota=nota;
-		tareas = new ArrayList <Tarea>();
 	}
-	
-	public Estudiante () {
-		tareas = new ArrayList <Tarea>();
-	}
-
-	
-	void agregarTarea (Tarea unaTarea) {
-		tareas.add(unaTarea);
-	}
-
 	
 	public String getTarea() {
 		return tarea;
 	}
 
-
 	public void setTarea(String tarea) {
 		this.tarea = tarea;
 	}
-	
-	
+
 }

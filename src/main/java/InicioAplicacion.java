@@ -9,7 +9,6 @@ public class InicioAplicacion extends Application {
 	
 	
 	public static void main(String[] args) {
-		//Configuration.configure();
 		CrearDemoRepo.run();
 		new InicioAplicacion().start();
 	}
