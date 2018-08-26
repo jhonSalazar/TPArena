@@ -9,9 +9,8 @@ import org.uqbar.commons.utils.Transactional;
 import uqbar.arena.persistence.annotations.PersistentClass;
 
 @SuppressWarnings("serial")
-@Transactional
 @Observable
-@PersistentClass
+
 public class Tarea extends Entity {
 
 	private String nombre;

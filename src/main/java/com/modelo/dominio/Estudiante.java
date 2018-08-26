@@ -17,21 +17,15 @@ import uqbar.arena.persistence.annotations.PersistentField;
 
 
 @SuppressWarnings("serial")
-@Transactional
 @Observable
-@PersistentClass
+
 public class Estudiante extends Entity {
-	@PersistentField
+
 	private String nombre;
-	
-	@PersistentField
 	private int legajo;
-	
 	private List<Tarea> tareas ;	
 	private String tarea;
-	//private Tarea tarea;	
 	private String nota;
-
 	private Boolean conceptual;
 
 	public Boolean getConceptual() {
@@ -99,39 +93,8 @@ public class Estudiante extends Entity {
 	void agregarTarea (Tarea unaTarea) {
 		tareas.add(unaTarea);
 	}
-	
-	public void validar() {
-		if (!this.ingresoNumero()) {
-			throw new UserException("Debe ingresar número de Legajo");
-		}		
-		if (!this.ingresoNombre()) {
-			throw new UserException("Debe ingresar nombre");
-		}
-		if (this.tareas == null) {
-			throw new UserException("Debe ingresar la tarea del alumno");
-		}
-		if (!this.ingresoNota()) {
-			throw new UserException("Debe ingresar la nota del alumno");
-		}
-	}
-	
-	public void validarFormatoConceptul()
-	{
-		
-	}
-	public boolean ingresoNumero() {
-		return this.legajo != 0;
-	}
-	
-	public boolean ingresoNombre() {
-		return this.nombre != null && !this.nombre.trim().equals("");
-	}
-	
-	public boolean ingresoNota() {
-		return this.nota != null && !this.nota.trim().equals("");
-	}
 
-
+	
 	public String getTarea() {
 		return tarea;
 	}

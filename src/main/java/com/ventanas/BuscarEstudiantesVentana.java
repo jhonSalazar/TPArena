@@ -16,15 +16,16 @@ import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
+import com.ViewModel.EstudianteViewModel;
 import com.modelo.dominio.Estudiante;
 import com.operaciones.ui.*;
 
 @SuppressWarnings("serial")
-public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
+public class BuscarEstudiantesVentana extends SimpleWindow<EstudianteViewModel> {
 
 	public BuscarEstudiantesVentana(WindowOwner parent) {
-		super(parent, new BuscadorEstudiante());
-		this.getModelObject().buscar();
+		super(parent, new EstudianteViewModel());
+		//this.getModelObject().buscar();
 	}
 
 	/**
@@ -34,10 +35,12 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 	 */
 	@Override
 	protected void createMainTemplate(Panel mainPanel) {
+		/*
 		this.setTitle("Buscador de Alumnos");
 		this.setTaskDescription("Ingrese los parámetros de búsqueda");
-
-		super.createMainTemplate(mainPanel);
+		 */
+		
+		//super.createMainTemplate(mainPanel);
 
 		this.createResultsGrid(mainPanel);
 		this.createGridActions(mainPanel);
@@ -54,6 +57,7 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 	@Override
 	protected void createFormPanel(Panel mainPanel) {
 		
+		/*
 		Panel searchFormPanel = new Panel(mainPanel);
 		searchFormPanel.setLayout(new ColumnLayout(2));
 		
@@ -84,6 +88,7 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 		.setWidth(200)
 		.bindValueToProperty("tarea");
 		
+		
 		new Button(panelBotones)
 		.setCaption("Buscar")
 		.onClick( () -> this.getModelObject().buscar() )
@@ -97,12 +102,13 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 		new Button(panelBotones)//
 		.setCaption("Nuevo Estudiante")
 		.onClick( () -> this.crearEstudiante() ); 
-		
+		*/
 	}
-
+	
 	@Override
+	
 	protected void addActions(Panel actionsPanel) {
-		/*new Button(actionsPanel)
+		/*	new Button(actionsPanel)
 			.setCaption("Buscar")
 			.onClick( () -> this.getModelObject().buscar() )
 			.setAsDefault()
@@ -114,7 +120,8 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 
 		new Button(actionsPanel)//
 			.setCaption("Nuevo Estudiante")
-			.onClick( () -> this.crearEstudiante() );*/
+			.onClick( () -> this.crearEstudiante() );
+*/
 	}
 
 // *************************************************************************
@@ -126,13 +133,15 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 	 * resultados de la búsqueda Cuando el usuario presiona Buscar, se actualiza el model, y éste a su vez
 	 * dispara la notificación a la grilla que funciona como Observer
 	 */
+	
+	
 	protected void createResultsGrid(Panel mainPanel) {
 		Table<Estudiante> table = new Table<Estudiante>(mainPanel, Estudiante.class);
 		table.setHeight(200);
 		table.setWidth(450);
 
-		table.bindItemsToProperty("resultados");
-		table.bindValueToProperty("estudianteSeleccionado");
+		table.bindItemsToProperty("estudiantes");
+		table.bindValueToProperty("estudiante");
 
 		this.describeResultsGrid(table);
 	}
@@ -170,10 +179,12 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 		Panel actionsPanel = new Panel(mainPanel);
 		actionsPanel.setLayout(new HorizontalLayout());
 
+		/*
 		Button edit = new Button(actionsPanel);
 		edit.setCaption("Editar");
 		edit.onClick( () -> this.modificarCelular() );
-
+		
+		
 		Button remove = new Button(actionsPanel);
 		remove.setCaption("Borrar");
 		remove.onClick( () -> this.getModelObject().eliminarCelularSeleccionado() );
@@ -182,12 +193,15 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 		NotNullObservable elementSelected = new NotNullObservable("estudianteSeleccionado");
 		remove.bindEnabled(elementSelected);
 		edit.bindEnabled(elementSelected);
+		
+		*/
 	}
 
 	// ********************************************************
 	// ** Acciones
 	// ********************************************************
 
+	/*
 	public void crearEstudiante() {
 		this.openDialog(new CrearEstudianteVentana(this));
 	}
@@ -197,10 +211,11 @@ public class BuscarEstudiantesVentana extends SimpleWindow<BuscadorEstudiante> {
 			new EditarEstudianteVentana(
 				this, this.getModelObject().getEstudianteSeleccionado()));
 	}
-
+	*/
+/*
 	protected void openDialog(Dialog<?> dialog) {
 		dialog.onAccept( () -> this.getModelObject().buscar() );
 		dialog.open();
 	}
-
+*/
 }

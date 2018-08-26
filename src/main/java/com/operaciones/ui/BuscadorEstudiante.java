@@ -53,27 +53,6 @@ public class BuscadorEstudiante {
 	}
 
 
-
-	// ********************************************************
-	// ** Acciones
-	// ********************************************************
-
-	public void buscar() {
-		this.resultados = new ArrayList<Estudiante>();
-		this.resultados = RepositorioEstudiantes.getInstance().search(this.legajo, this.nombre,this.tarea,this.nota);
-	}
-
-	public void limpiar() {
-		this.nombre = "";
-		this.legajo = 0;
-		this.resultados = new ArrayList<Estudiante>();
-	}
-
-	public void eliminarCelularSeleccionado() {
-		RepositorioEstudiantes.getInstance().delete(this.getEstudianteSeleccionado());
-		this.buscar();
-	}
-
 	// ********************************************************
 	// ** Accessors
 	// ********************************************************
