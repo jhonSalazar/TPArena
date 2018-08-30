@@ -15,6 +15,6 @@ public class InicioAplicacion extends Application {
 	
 	
 	protected Window<?> createMainWindow() {
-		return new BuscarEstudiantesVentana(this);
+		return new VentanaLogin(this);
 	}
 }

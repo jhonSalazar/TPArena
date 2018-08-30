@@ -6,13 +6,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 import org.uqbar.commons.model.Entity;
-import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
-import org.uqbar.commons.utils.Transactional;
 
-import scala.Boolean;
-import uqbar.arena.persistence.annotations.PersistentClass;
-import uqbar.arena.persistence.annotations.PersistentField;
 
 
 
@@ -25,7 +20,7 @@ public class Estudiante extends Entity {
 	private int legajo;
 	private String tarea;
 	private String nota;
-
+	
 
 
 	public String getNota() {
@@ -72,5 +67,6 @@ public class Estudiante extends Entity {
 	public void setTarea(String tarea) {
 		this.tarea = tarea;
 	}
-
+	
+	
 }
