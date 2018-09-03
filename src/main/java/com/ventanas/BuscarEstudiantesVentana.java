@@ -1,15 +1,7 @@
 package com.ventanas;
-import org.uqbar.arena.bindings.NotNullObservable;
-import org.uqbar.arena.layout.ColumnLayout;
-import org.uqbar.arena.layout.HorizontalLayout;
-import org.uqbar.arena.widgets.Button;
-import org.uqbar.arena.widgets.Label;
-import org.uqbar.arena.widgets.NumericField;
 import org.uqbar.arena.widgets.Panel;
-import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.widgets.tables.Column;
 import org.uqbar.arena.widgets.tables.Table;
-import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
@@ -28,13 +20,13 @@ public class BuscarEstudiantesVentana extends SimpleWindow<EstudianteViewModel> 
 		this.setTitle("Notas de Alumnos");
 		Table<Estudiante> table = new Table<Estudiante>(mainPanel, Estudiante.class);
 		table.setHeight(200);
-		table.setWidth(450);
+		table.setWidth(1000);
 		table.bindItemsToProperty("estudiantes");
 		table.bindValueToProperty("estudiante");
 
 		Column<Estudiante> nombreColumn = new Column<Estudiante>(table);
 		nombreColumn.setTitle("nombre");
-		nombreColumn.setFixedSize(150);
+		nombreColumn.setFixedSize(100);
 		nombreColumn.bindContentsToProperty("nombre");
 	
 		

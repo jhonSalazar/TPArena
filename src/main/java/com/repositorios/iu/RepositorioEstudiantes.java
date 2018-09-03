@@ -8,7 +8,7 @@ import com.modelo.dominio.*;
 
 @SuppressWarnings("serial")
 @Observable
-public class RepositorioEstudiantes //extends PersistentRepo<Estudiante>
+public class RepositorioEstudiantes
 {
 	private static RepositorioEstudiantes instance;
 

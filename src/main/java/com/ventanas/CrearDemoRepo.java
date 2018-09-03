@@ -7,9 +7,9 @@ public class CrearDemoRepo{
 
 	public static void run() {	
 		RepositorioEstudiantes  repoEstudianes = RepositorioEstudiantes.getInstance();
-		repoEstudianes.agregarEstudiante(new Estudiante("Jhon",1111,"Entrega UI","6"));
-		repoEstudianes.agregarEstudiante(new Estudiante("Jhon",1111,"Parcial Disenio","10"));
-		repoEstudianes.agregarEstudiante(new Estudiante("Fede",1234,"Parcial Disenio","2"));
+		repoEstudianes.agregarEstudiante(new Estudiante("Fede",1111,"Entrega TP Arena","6"));
+		repoEstudianes.agregarEstudiante(new Estudiante("Fede",1111,"Tp Sistemas operativos","10"));
+		repoEstudianes.agregarEstudiante(new Estudiante("Fede",1111,"Parcial economía","8"));
 		
 		}
 	

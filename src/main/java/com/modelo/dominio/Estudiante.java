@@ -1,10 +1,4 @@
 package com.modelo.dominio;
-
-import java.util.List;
-
-
-import java.util.ArrayList;
-
 import org.uqbar.commons.model.Entity;
 import org.uqbar.commons.utils.Observable;
 
