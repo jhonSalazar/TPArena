@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import org.uqbar.commons.utils.Observable;
 import com.modelo.dominio.*;
 
-@SuppressWarnings("serial")
 @Observable
 public class RepositorioEstudiantes
 {
